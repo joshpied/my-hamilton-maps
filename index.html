@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyHamiltonMap | Custom Trip Map</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+    <link rel="shortcut icon" href="https://www.hamilton.ca/sites/all/themes/coh/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel = "stylesheet" href = "print.css" type = "text/css" media = "print"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?key=ApZk0exDJoAb7rtYHcNpg9lpt4k0b1KhwrgeeTtAqBvHHwlegfyllelR8_SAPa7k"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body onload="loadMap()">
+    <div class="container-fluid" id="main">
+        <header id="header">
+            <h1>MyHamiltonMap</h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <!--FILTERS-->
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#" onclick="setTravelPins(false)">
+                                    <h4><i class="fa fa-plane"></i> How to get there</h4>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="setAccommodationPins()">
+                                    <h4><i class="fa fa-bed"></i> Where to stay</h4>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="setRestaurantPins()">
+                                    <h4><i class="fas fa-utensils"></i> What to eat</h4>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="setActivitiesPins()">
+                                    <h4><i class="fa fa-hiking"></i> What to do</h4>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="setUserPins()">
+                                    <h4><i class="fas fa-map-marked-alt"></i> MyMap</h4>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--PRINT / DOWNLOAD-->
+                        <div id="rightNav" class="nav navbar-nav navbar-right btn-group">
+                            <button type="button" class="btn btn-primary navbar-btn" onclick="printPage()" style="margin-top: 18px;">
+                                <i class="fa fa-print"></i> Print
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="progress">
+                <div id="progressBar"
+                     class="progress-bar progress-bar-striped"
+                     role="progressbar"
+                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                     style="width: 0">
+                    <span class="sr-only">0% Complete</span>
+                </div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-lg-12" id="mapContainer">
+                <div id="map"></div>
+            </div>
+            <!--LIST appears when user clicks myMap-->
+            <div class="col-md-3 col-sm-12 add-border" id="userLocations" style="display: none;">
+                <h2>Your Locations</h2>
+                <h3 id="alertBox"></h3>
+                <!--Will be populated with marker data when user adds to their list:-->
+                <div id="userLocationsList">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="locationWarning" class="alert alert-warning" role="alert" style="display: none;">
+                </div>
+                <div id="locationSuccess" class="alert alert-success" role="alert" style="display: none;">
+                    Location added!
+                </div>
+            </div>
+        </div>
+        <footer class="row" style="clear: both;">
+            <div class="col-lg-12">
+                <span class="label">&copy; 2018 Joshua Piedimonte</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

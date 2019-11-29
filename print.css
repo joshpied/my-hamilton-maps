@@ -1,0 +1,17 @@
+@page {
+    size: portrait !important;
+}
+
+@media print {
+    #map {
+        height: 630px !important;
+    }
+
+    #userLocations {
+        margin-top: 55px;
+    }
+
+    footer, div.progress, #locationWarning, #locationSuccess, h5.locationListWebsite {
+        display: none !important;
+    }
+}

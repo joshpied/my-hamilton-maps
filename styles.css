@@ -1,0 +1,77 @@
+/*Background*/
+body {
+    background-color: #0a588b !important;
+}
+
+#main {
+    background: linear-gradient(300deg, #fe9700 40%, #0a588b 40%) !important;
+    background-repeat: space;
+}
+
+/*Main header dynamically sizes*/
+header h1 {
+    font-size:5vw;
+    color: #fe9700;
+}
+
+/*List of user locations: hidden on load*/
+#rightNav {
+    display: none;
+}
+
+/*Infobox height*/
+div.infobox-actions {
+    height: auto !important;
+}
+
+div.infobox-title {
+    font-family: Arial !important;
+}
+
+/*Add to my map button styles*/
+div.infobox-actions:hover, div.infobox-stalk:hover {
+    background-color: #dff0d8;
+}
+
+ul.infobox-actions-list div li a {
+    font-size: 19px;
+    color: #4ea132;
+    margin: 1px;
+}
+
+ul.infobox-actions-list div li a:hover {
+    /*color: #76ba5f;*/
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    position:relative;
+    transition:0.5s color ease;
+    text-decoration:none !important;
+    text-shadow: 0.5px 0.5px 1px;
+    color: #56ba28;
+}
+
+/*User Locations List*/
+#userLocations {
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+/*when user location list is below the map*/
+@media (max-width: 991px) {
+    .add-border {
+        border: 5px solid #0a588b;
+    }
+}
+
+/*Warning / Success Messages*/
+#locationSuccess, #locationWarning {
+    margin-top: 15px;
+}
+
+span.label {
+    background-color: #0a588b;
+}
+
+#userLocations {
+    background-color: rgb(244, 243, 238);
+}
